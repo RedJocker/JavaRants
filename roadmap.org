@@ -1,0 +1,71 @@
+
+
+write a roadmap for a basic java course using mermaid syntax
+
+#+begin_src mermaid :file roadmap.png
+flowchart TD
+    A[Introduction to Java] --> B1[Basic Syntax]
+    A --> B2[JVM Fundamentals]
+    A --> B3[Setup & Environment]
+    
+    B1 --> C1[Variables]
+    B1 --> C2[Comments]
+    
+    B2 --> C3[Memory Management]
+    
+    C1 --> D1[Primitive Data Types]
+    C1 --> D2[Reference Types]
+    
+    D1 --> E1[Numeric Types]
+    D1 --> E2[Boolean Type]
+    D1 --> E3[Char Type]
+    
+    D2 --> E4[Strings]
+    D2 --> E5[Objects]
+    
+    C1 --> F1[Variable Scope]
+    C1 --> F2[Type Casting]
+    
+    B1 --> G1[Operators]
+    G1 --> H1[Arithmetic Operators]
+    G1 --> H2[Relational Operators]
+    G1 --> H3[Logical Operators]
+    G1 --> H4[Bitwise Operators]
+    G1 --> H5[Assignment Operators]
+    
+    H1 --> I1[Operator Precedence]
+    H2 --> I1
+    H3 --> I1
+    H4 --> I1
+    H5 --> I1
+    
+    B1 --> J1[Control Flow]
+    J1 --> K1[Conditional Statements]
+    J1 --> K2[Loops]
+    
+    K1 --> L1[if-else]
+    K1 --> L2[switch]
+    
+    K2 --> L3[for loop]
+    K2 --> L4[while loop]
+    K2 --> L5[do-while loop]
+    K2 --> L6[break & continue]
+    
+    B1 --> M1[Arrays]
+    M1 --> N1[Single-Dimensional]
+    M1 --> N2[Multi-Dimensional]
+    M1 --> N3[Array Operations]
+    
+    N3 --> O1[Iteration]
+    N3 --> O2[Searching]
+    N3 --> O3[Sorting]
+    
+    B1 --> P1[Methods]
+    P1 --> Q1[Method Declaration]
+    P1 --> Q2[Parameters & Return]
+    P1 --> Q3[Method Overloading]
+    P1 --> Q4[Recursion]
+    
+    F1 --> Q2
+    Q1 --> Q2
+#+end-src

@@ -1,0 +1,84 @@
+write a introduction to java lesson for begginers
+
+* Introduction to Java for Beginners
+
+** What is Java?
+
+Java is a popular, object-oriented programming language designed to be platform-independent.
+This platform independence was revolutionary when Java emerged in the mid-1990s,
+addressing one of the most significant challenges in software development at that time.
+Before Java, programmers faced a fragmented computing landscape where applications had to be specifically
+compiled for each target operating system and hardware architecture.
+Developing software for multiple platforms meant maintaining separate codebases
+or extensive modifications, significantly increasing development costs and complexity.
+
+The computing environment of the 1990s was characterized by fierce competition
+between operating systems like Windows, MacOS, various Unix flavors, and emerging Linux distributions.
+Each platform had its own application binary format, system calls, and APIs, creating "walled gardens"
+that locked both developers and users into specific ecosystems.
+Cross-platform development typically involved painful compromises in
+functionality or completely separate development
+tracks for each supported platform.
+
+Java's "write once, run anywhere" principle offered an elegant solution
+through its Java Virtual Machine (JVM) architecture.
+Rather than compiling code directly to machine-specific instructions,
+Java programs compile to platform-neutral bytecode that runs on a JVM,
+which acts as an abstraction layer between the application and the underlying operating system.
+This architecture freed developers from worrying about the specific details of each target platform
+while enabling consistent behavior across diverse environments.
+
+This innovation came during a transformative period in computing history.
+The internet was rapidly gaining mainstream adoption, creating demand
+for web applications and interactive content that could work across
+different browsers and operating systems.
+Java applets, small applications that could run in web browsers,
+became one of the first widespread uses of the language,
+allowing interactive content on websites at a time when HTML was largely static.
+Additionally, enterprise computing was becoming increasingly heterogeneous,
+with organizations maintaining a mix of Unix servers,
+Windows workstations, and various other systems.
+Java's platform independence made it particularly attractive
+for enterprise software development, where applications often needed
+to operate seamlessly across diverse computing environments.
+
+Created in the 1990s by James Gosling and his team at Sun Microsystems,
+Java quickly established itself as a cornerstone of modern software development
+due to this platform agnosticism, along with its robust security features,
+garbage collection, and strong typing system.
+Its influence extends far beyond its original vision,
+becoming foundational for Android app development, enterprise systems,
+and numerous other applications across the computing spectrum.
+
+** A glimpse of Java
+
+#+begin_src java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+#+end_src
+
+This code above is a trivial program written in java.
+When it runs it prints the text Hello, World! on a terminal window.
+We will later better analyse this program and explain in detail
+its contents but for now lets highlight some of java key aspects
+we can see in this program.
+
+- Java is an Object Oriented language. Java functions are part of
+  classes and are called methods.
+- The entrypoint of execution, or in other words where your program
+  starts executing, is on a special function called main. 
+- Java is a strongly typed language. Every variable needs to be
+  typed with one of the defined types and
+  it cannot change its type later.
+  This feature of the language allows the compiler to help locating
+  errors on your program, makes easier for IDEs to provide autocompletion
+  and it is also very handy while refactoring a program as you can make
+  a change and go through compilation errors to check where else you
+  have to change your program as a result of your previous change.
+- Java language is considered a part of C-family languages.
+  This is because Java syntax is very similar to c, like for example
+  every statements is terminated by a semicolon =;= and code blocks
+  are enclosed in curly braces ={}=  
