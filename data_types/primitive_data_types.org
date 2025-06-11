@@ -1,0 +1,161 @@
+* Java Primitive Data Types
+
+In Java, primitive data types are the most basic data types available.
+Java has eight and only eight primitive data types:
+
+=boolean=, =char=, =byte=, =short=, =int=, =long=, =float=, =double= 
+
+all of them built into the language.
+
+** Boolean
+
+The simplest primitive is =boolean=,
+which can only hold one of two values: =true= or =false=.
+Booleans are essential for control flow in programming,
+allowing you to make decisions based on conditions.
+For example, you might use a boolean to track whether a user is
+logged in or whether a process is complete and respond differently
+depending on the boolean value.
+
+#+begin_src java
+	// For the moment you don't need to worry
+	// about understanding every detail on this example
+  public class BooleanType {
+	  public static void main(String[] args) {
+		  boolean isSunny = true;
+		  if (isSunny) {
+			  System.out.println("Let's go out and live!");
+		  } else {
+			  System.out.println("I didn't want to get out anyway.");
+		  }
+	  }
+  }
+
+#+end_src
+
+** Char
+The =char= data type stores a single character,
+such as a letter, digit, or symbol.
+In Java, character literals are enclosed in single quotes,
+like ='A'= or ='$'=.
+Behind the scenes, =char= values are stored as numbers according
+to the Unicode character set,
+which allows Java to represent
+characters from languages around the world.
+
+#+begin_src java
+  // For the moment you don't need to worry
+  // about understanding every detail on this example
+  public class CharType {
+	  public static void main(String[] args) {
+		  char grade = 'A';
+
+		  switch (grade) {
+		  case 'A':
+			  System.out.println("Excellent work!");
+			  break;
+		  case 'B':
+			  System.out.println("Good job!");
+			  break;
+		  case 'C':
+			  System.out.println("Satisfactory performance.");
+			  break;
+		  case 'D':
+			  System.out.println("Needs improvement.");
+			  break;
+		  case 'F':
+			  System.out.println("Failed. Please try again.");
+			  break;
+		  default:
+			  System.out.println("Invalid grade entered.");
+		  }
+	  }
+  }
+#+end_src
+
+
+** Numeric Integers
+
+The numeric integer primitives include `byte`, `short`, `int`, and `long`
+for storing whole numbers of different sizes.
+A `byte` is an 8-bit signed integer and it can store numbers in the range [-128, 127].
+A `short`is a 16-bit signed integer with range [-32,768, 32,767].
+An `int`, the most commonly used integer type, is a 32-bit signed integer
+with range [-2,147,483,648, 2,147,483,647]
+A `long` is a 64-bit signed integer and
+is the largest primitive integer type with range
+[-9,223,372,036,854,775,808, 9,223,372,036,854,775,807].
+A `long` literal has to be postfixed with either `L` or `l` for java
+compiler to consider that literal number a `long`. Using `L` is prefered
+so it is not confused with the literal one `1`.
+
+#+begin_src java
+  // For the moment you don't need to worry about understanding every detail
+  // on this example
+  public class IntegerTypes {
+	  public static void main(String[] args) {
+		  byte smallNumber = 127;         // Maximum value for byte
+		  short mediumNumber = 32767;     // Maximum value for short
+		  int regularNumber = 2000000000; // Commonly used for most integers
+		  long largeNumber = 9000000000L; // Note the 'L' suffix for long values
+
+		  System.out.println("byte value: " + smallNumber);
+		  System.out.println("short value: " + mediumNumber);
+		  System.out.println("int value: " + regularNumber);
+		  System.out.println("long value: " + largeNumber);
+	  }
+  }
+#+end_src
+
+Choosing the appropriate type for your integer
+will depend on your application domain,
+in other words what your application is trying to achieve/represent.
+Using `int` is a good default if you don't have
+unusual memory constraints nor need to support very large numbers.
+
+** Numeric Decimals (Floating-Point Numbers)
+
+For decimal numbers, Java provides =float= and =double= primitive types.
+The =double= type is more precise and is the default for decimal values in Java.
+If you write =1.5= in your code, Java treats it as a =double=.
+When working with calculations that require precision,
+especially financial calculations,
+be aware that these types can sometimes produce tiny rounding errors.
+
+The =float= data type is a 32-bit floating-point number,
+while =double= is a 64-bit floating-point number.
+A =float= can store decimal numbers with 6-7 significant digits of precision,
+while a =double= provides about 15-16 digits of precision.
+When using =float= literals, you must add the suffix 'f' or 'F',ex: =3.14f=,
+otherwise, Java will treat the number as a =double= by default.
+=Double= is generally preferred for most calculations
+because it provides greater precision without much
+performance impact on modern computers.
+
+#+begin_src java
+  // Floating-Point primitive types
+  public class FloatingTypes {
+	  public static void main(String[] args) {
+		  float smallPrecisionNumber = 127.7F;    // Note the 'F' suffix for float values
+		  double highPrecisionNumber = 32767.02; //  Prefered type to use when requiring decimal values     
+
+		  System.out.println("float value: " + smallPrecisionNumber);
+		  System.out.println("double value: " + highPrecisionNumber);
+	  }
+  }
+  // For the moment you don't need to worry about understanding every detail
+  // on this example
+#+end_src
+
+** Other Numeric types
+
+What if you need larger integers or more precise floating-point number?
+There are other non-primitive types that can handle those, but they are
+not subject of this lesson. If you are curious you can search for
+BigInteger and BigDecimal, but these should be a theme for another lesson.
+
+** Custom Types
+
+What if you want to define some custom type for your application?
+It is definitelly possible to do that, but all custom types are
+non-primitive types and this is also a theme for another lesson.
