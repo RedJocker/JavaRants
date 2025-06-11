@@ -1,5 +1,3 @@
-write a introduction to java lesson for begginers
-
 * Introduction to Java for Beginners
 
 ** What is Java?
@@ -53,11 +51,13 @@ and numerous other applications across the computing spectrum.
 ** A glimpse of Java
 
 #+begin_src java
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
+  // A trivial Java program 
+  public class HelloWorld {
+	  public static void main(String[] args) {
+		  String greeting = "Hello, World!";
+		  System.out.println(greeting);
+	  }
+  }
 #+end_src
 
 This code above is a trivial program written in java.
@@ -69,16 +69,18 @@ we can see in this program.
 - Java is an Object Oriented language. Java functions are part of
   classes and are called methods.
 - The entrypoint of execution, or in other words where your program
-  starts executing, is on a special function called main. 
+  starts executing, is on a special method called main. 
 - Java is a strongly typed language. Every variable needs to be
   typed with one of the defined types and
   it cannot change its type later.
   This feature of the language allows the compiler to help locating
-  errors on your program, makes easier for IDEs to provide autocompletion
+  errors on your program before running them, makes easier for IDEs to provide autocompletion
   and it is also very handy while refactoring a program as you can make
   a change and go through compilation errors to check where else you
   have to change your program as a result of your previous change.
 - Java language is considered a part of C-family languages.
-  This is because Java syntax is very similar to c, like for example
-  every statements is terminated by a semicolon =;= and code blocks
-  are enclosed in curly braces ={}=  
+  This is because Java syntax is very similar to C, like for example
+  every statements is terminated by a semicolon =;=, code blocks
+  are enclosed in curly braces ={}=,
+  single line comments start with double forward slashes =//=
+  and other syntax similarities
