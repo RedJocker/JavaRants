@@ -1,0 +1,149 @@
+* Lesson: Your First Java Program
+
+** Introduction
+It has come the time to actually create and run our first Java program.
+It is a tradition between developers to make a trivial program when
+starting a new project as a way to test if all the necessary setup is
+working as it should.
+The same idea is used when teaching/learning a new language as way to
+give students a glimpse of the language.
+Usually this trivial program is a "Hello World!" program that
+displays Hello World on whatever media the application is running on.
+We are going to make a console java program and run it on a terminal.
+The result of our program is going to be "Hello Word!" output on terminal.
+
+We are assuming you already have Java installed and configured on your system
+and have an installed text editor of your preference
+
+** Creating Your First Java File
+1. Navigate to a new folder where you are going to create the program
+2. Open a text editor in that folder
+3. Create a new file named =HelloWorld.java=
+4. Type the following code:
+
+#+begin_src java
+  public class HelloWorld {
+	  public static void main(String[] args) {
+		  String greeting = "Hello World!"; 
+		  System.out.println(greeting);
+	  }
+  }
+#+end_src
+
+** Compiling and Running
+Depending on the text editor you are using there may be some more
+easy way to run the program, like pressing a green arrow button.
+But we are going to teach the raw way you can use in any terminal.
+Text editor buttons will do this for you as this steps are
+necessary to run a java program, but it is always
+good to know it for youself so you can
+workaround possible text editor issues if you encounter one
+
+1. Open a command prompt/terminal
+2. Navigate to the folder containing your =HelloWorld.java= file
+3. Compile your program:
+   #+begin_src bash 
+   javac HelloWorld.java
+   #+end_src
+   This calls the java compiler named javac and
+   creates a =HelloWorld.class= file containing bytecode on the same
+   folder of your HelloWorld.java
+
+4. Run your program:
+   #+begin_src bash
+   java HelloWorld
+   #+end_src
+   This calls the java virtual machine to execute your HelloWord program
+   You should see =Hello World!= as a result of the program execution
+   If you see a compilation error it is likely that you mistyped something
+   while copying the code given above. There is no need to freak out if
+   you get a compilation error, nothing bad has really happened, just
+   fix your program and try again. Compilers will try to help you
+   identifing what is wrong with your program so pay attention to
+   the error message. 
+
+** Program Breakdown
+On this section we are going to provide a comprehesive breakdown of this
+trivial program. Java is, with some degree of reason, considered
+a verbose language. Beginners don't really have to understand the
+exact meaning of all the keywords on this trivial program and on
+a first moment just memorizing or copying from a reference
+the code to declare a main method is ok to begin with.
+We will anyway provide a comprehesive breakdown so you can satisfy
+your curiosity and antecipate some of the content that is going
+to be covered by other future lessons.
+
+- =public=:
+  This is a keyword that is an 'Access level modifier' it defines the
+  visibility level of classes, methods and fields.
+  In this case public means everyone can see the class that is going to be defined.
+- =class=
+  This keyword is part of a class definition.
+  It declares a structure that can contain
+  fields(properties) and methods(behaviours)
+- =public class HelloWorld=
+  This defines a class that everyone can see with the name HelloWorld.
+  The name of this class has to match the name of the file.
+  All java files need to have exactly one public class
+  with the same name of the file. There can be other class definitions
+  on same file but only one can be public.
+- ={}=
+  Curly braces are used to define blocks of code. On our program there are
+  two blocks of code defined the first block of code is related to the class
+  definition of HelloWorld class and the second is nested inside the class
+  and is related to a method definition of the method main  
+- =static=
+  This is a keyword that declares that a certain method or field belongs
+  to the class itself and not to instances of the class.
+  You will understand this better when studying about Object Orientation
+  so don't worry if you don't undestand what it means yet. 
+- =void=
+  This is a special return type that declares that the method does not
+  return any significant value. This is used when a methods purpose
+  is to cause some usefull side-effect
+  like outputing a message to the console
+  and there is no interesting value produced by this method to be returned.
+- =main=
+  This is a special function name. All java executables need to have one and only
+  one public static main method defined on one of the classes of the program.
+- =(String[] args)=
+  The =()= in this context defines parameters of a function definition.
+  In this case the function has one parameter that has type =String[]=
+  and name =args= 
+- =public static void main(String[] args)=:
+  This is the complete signature definition of the main method.
+  The main method always has to be static, to have return type void and a parameter of type String[],
+  the name of the parameter can be any valid identifier,
+  but args is the conventional paramenter name for a main method.
+  The parameter args stores all arguments given to the program when invoking it on terminal
+  We are not giving any argument to this program so args is empty.
+- =String greeting = "Hello World!"=:
+  This, in the context of a method block, defines a local variable of type String
+  named greeting and initialized with the value from
+  the literal string "Hello World!".
+- =;=
+  The semicolon is the statement terminator.
+  All java statements have to be terminated with a semicolon.
+  Failing to terminate a statement with a semicolon will result on
+  a compilation error.
+- =System=
+  This is a predefined class from =java.lang= that holds some System
+  level fields and methods.
+- =.=
+  This is an operator used to access some visible method or field
+  from a class or object.
+- =System.out=
+  This access the static field =out= of the System class.
+  This field is an object that is bound to stdout and is often used
+  to call methods that make output to console screen  
+- =System.out.println=
+  This access the method println of the object on the field out of
+  the class System.
+  println is used to output values to the console with a line break at the end
+- =(greeting)=
+  =()= in this context means method invocation and =greeting=
+  is the argument being passed to this method invocation
+- =System.out.println(greeting);=
+  Invocation of the method println method passing the local variable greeting
+  as argument. As result of this method invocation "Hello World!" is
+  print to the console with a line break at the end
