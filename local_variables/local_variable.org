@@ -1,0 +1,252 @@
+* depends on
+
+- [[file:../primitive_data_types/primitive_data_types.org][Java Primitive Data Types]]
+
+* Java Lesson: Local Variables
+
+** Introduction
+
+Welcome to our lesson on local variables in Java! After learning about
+Java's introduction, creating your first Hello World program,
+and understanding primitive types, we're now ready to dive into
+local variables
+
+** What are Local Variables?
+
+Local variables are variables declared within static methods,
+instance methods or constructors, or any nested code
+block within methods or constructors
+like inside loops or if statements.
+Their scope is limited to the block where they are declared.
+For the moment we will limit ourselves to using them only on
+static methods as it does not require
+further understanding of the basics of Object Orientation nor of Scopes.
+
+#+begin_src java
+  public class LocalVariablesDemo {
+      public static void main(String[] args) {
+          // This is a declaration of a local variable
+          // with type int and name age initialized with
+          // the value of a literal int 25
+          int age = 25;
+
+          // This prints Age: 25
+          System.out.println("Age: " + age);
+      }
+  }
+#+end_src
+
+** Declaration vs. Initialization
+
+In the above example, we actually performed
+2 different steps on the same line when
+creating the local variable =age=.
+One step was declaring a variable with type =int= named =age=.
+Another step was initializing the local variable =age= with the value =25=.
+
+It's important to understand the difference between
+declaring a variable and initializing it:
+
+*** Variable Declaration
+
+Declaration is when you specify the variable's type and name.
+You can declare a variable without initializing it.
+
+
+#+begin_src java
+  public class LocalVariablesDemo {
+      public static void main(String[] args) {
+          int counter; // Declaration
+          String message; // Declaration
+      }
+  }
+#+end_src
+
+*** Variable Initialization
+
+Initialization is when you assign a value to a variable for the first time.
+
+#+begin_src java
+  public class LocalVariablesDemo {
+      public static void main(String[] args) {
+          int counter; // Declaration
+          String message; // Declaration
+
+          counter = 1; // Initialization
+          message = "Hello, Java!"; // Initialization
+      }
+  }
+#+end_src
+
+You can also combine declaration and initialization in a single statement:
+
+#+begin_src java
+  public class LocalVariablesDemo {
+      public static void main(String[] args) {
+          int counter = 1; // Declaration and initialization
+          String message = "Hello, Java!"; // Declaration and initialization
+      }
+  }
+#+end_src
+
+*** Important Note
+
+In Java, local variables must be initialized before they are used.
+Unlike instance and static fields,
+local variables in Java do **not** receive a default value.
+The compiler will generate an error if you try to use
+a local variable that has not been initialized:
+
+#+begin_src java
+  public static void main(String[] args) {
+	  int number; // Declared but not initialized
+    
+	  // The following line would cause a compilation error:
+	  // System.out.println(number);
+    
+	  number = 10; // Now it's initialized
+	  System.out.println(number); // Works fine now
+  }
+#+end_src
+
+If you remove the comment on the first println, you would likely
+see a compilation error message along these lines
+(the actual message can vary with compiler implementation)
+
+#+begin_src bash
+ERROR!
+Main.java:5: error: variable number might not have been initialized
+        System.out.println(number);
+                           ^
+1 error
+#+end_src
+
+
+** Valid identifiers
+
+When naming local variables in Java, you must follow specific rules.
+Your local variable name must be a valid identifier.
+Valid identifiers must begin with either a letter, dollar sign =$=,
+or underscore =_=, followed by any combination of letters,
+digits, dollar signs, or underscores.
+Java is case-sensitive, so =count=, =Count=, and =COUNT=
+are considered different variables.
+Additionally, you cannot use Java keywords
+(like =int=, =class=, or =for=) as variable names,
+nor can identifiers contain spaces
+or special characters like =@=, =#=, or =%=.
+
+Beyond these rules, Java follows well established naming conventions
+that enhance code readability.
+Local variables should use camelCase notation
+(starting with lowercase letter and capitalizing subsequent words),
+be descriptive of their purpose,
+and avoid abbreviations that aren't widely understood.
+For example, use =studentAge= rather than =sa= or =stdAge=.
+Also starting a variable with =$= or =_= should be avoided,
+by convention these are reserved for special purposes like
+auto-generated code. 
+These conventions aren't enforced by the compiler
+but are considered best practices in the Java community.
+
+#+begin_src java:
+int 1stPrice = 10;    // invalid, cannot start with number
+int first price = 30; // invalid, contains space
+int first-price = 30; // invalid, contains hyphen
+int fp = 30;          // valid but not good, not clear enough
+int first_price = 30  // valid but not good, java adopts camelCase not snake_case
+#+end_src
+
+When working in teams or on professional projects,
+consistent variable naming becomes crucial for code maintenance.
+Short-lived variables used in small scopes
+(like loop counters) can have shorter names (=i=, =j=),
+but variables with wider scope should have more descriptive
+names that clearly indicate their purpose.
+Remember that good variable names are self-documenting
+and make your code more understandable
+to others who might read or maintain it in the future.
+
+A famous quote from Harold Abelson states that:
+
+"Programs must be written for people to read,
+and only incidentally for machines to execute."
+
+Keep your code well-written for your future self and
+for others. 
+
+** The assignment operator ===
+In the previous examples we have already used the assignment operator to
+initialize a variable's value. For mutable local variables, you can
+use the assignment operator to change its value as many times as
+you want. Only the first assignment is considered an initialization.
+
+#+begin_src java
+  public static void main(String[] args) {
+      int number = 30; // <- declaration and initialization
+      System.out.println(number); // prints 30
+
+      number = 10; // <- reassignment
+      System.out.println(number); // prints 10
+
+      number = 5; // <- reassignment
+      System.out.println(number); // prints 5
+
+      int otherNumber;  // <- declaration
+      otherNumber = 30; // <- initialization
+      otherNumber = 33; // <- reassignment
+  }
+#+end_src
+
+** The =final= Keyword
+
+Within the scope of a method
+the =final= keyword declares an immutable local variable,
+a variable whose value cannot be changed after it's initialized.
+Using =final= for local variables is considered a good practice.
+
+#+begin_src java
+    public static void main(String[] args) {
+        final int immutableVariable = 30;
+        int mutableVariable = 60;
+
+        // The following would cause a compilation error:
+        // immutableVariable = 35;
+
+        // this is ok
+        mutableVariable = 20; 
+    }
+#+end_src
+
+*** Why Use =final= as Default?
+
+It's considered a good practice to declare
+local variables as =final= by default for several reasons:
+
+1. *Prevents accidental changes*:
+   Once initialized, a =final= variable cannot be modified,
+   preventing unintended modifications.
+
+2. *Clearer code*:
+   Using =final= communicates to
+   other developers, and your future self,
+   that this value is not meant to change reducing
+   the complexity of the code because there
+   is no need to track the variable's state after initialization.
+   It is one less thing to hold in your head while trying to reason
+   about how the code works.
+
+3. *Potential performance optimization*:
+   The compiler can sometimes better optimize
+   the code with =final= variables as it can make
+   safe assumptions about the variable’s state.
+
+4. *Thread safety*: =final= variables are safe
+   to share between threads once initialized.
+   Having concurrent writes and reads to the same variable
+   is a well known problem called race condition.
+   Immutable variables, once initialized,
+   are immune to this problem since reassignment is disallowed.
+
+Only when you know for sure that a variable
+needs to change its value should you omit the =final= keyword.
