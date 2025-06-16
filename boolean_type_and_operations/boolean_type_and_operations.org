@@ -1,0 +1,187 @@
+* depends on
+
+- [[file:../primitive_data_types/primitive_data_types.org][Java Primitive Data Types]]
+- [[file:../local_variable/local_variable.org][Local Variables]]
+
+* Boolean Types and Operations
+
+** Introduction
+
+Welcome to "Boolean Types and Operations"! In previous lessons,
+you have already learned about basic data types in Java.
+In this lesson, we'll focus on the boolean data type,
+logical operators, the rules that govern their precedence,
+and a special concept called "short-circuiting".
+
+Booleans are foundational to programming logic
+and will allow your programs to make decisions.
+Getting comfortable with boolean type will prepare you for
+future topics like branching and loops.
+
+** Boolean Type
+
+The =boolean= is one of Java’s primitive data types.
+It represents only two possible values:
+
+- =true=
+- =false=
+  
+** Why use boolean variables?
+
+Booleans are used to represent facts with yes/no, true/false,
+or on/off values. For example:
+
+#+begin_src java
+boolean isJavaFun = true;
+boolean isSnowing = false;
+#+end_src
+
+** Logical Operators
+
+Java provides several *logical operators*
+that work with boolean values.
+Here are the most common:
+
+| Operator   | Name | Example        | Description                            |
+|------------+------+----------------+----------------------------------------|
+| &&         | and  | a && b         | True if /both/ a and b are true        |
+| \vert\vert | or   | a \vert\vert b | True if /either/ a or b is true        |
+| !          | not  | !a             | True if a is false, false if a is true |
+
+*** Example:
+
+#+begin_src java
+boolean t = true;
+boolean f = false;
+
+System.out.println(t && f); // false
+System.out.println(t || f); // true
+System.out.println(!t);     // false
+#+end_src
+
+** The Precedence of Logical Operators
+
+When expressions combine several logical operators,
+Java groups them in a specific order.
+This is called *operator precedence*.
+
+- *not (=!=)* has the highest precedence.
+- *and (=&&=)* is next.
+- *or (=||=)* comes last.
+
+To change how operands are combined you can use parentheses
+=()=.
+
+*** Example:
+
+#+begin_src java
+boolean isRaining = true;
+boolean isWithUmbrella = false;
+boolean isCold = false;
+    
+boolean isGoingOut = !isRaining || isWithUmbrella && !isCold;
+System.out.println("Are we going out? " + isGoingOut); // false
+#+end_src
+
+On our example the precedence of operations is
+what prevents us from going out
+on a warm rainy day without an umbrella.
+
+Parentheses can be used to change the grouping of operands
+or just to improve the clarity of the expression,
+especially as your expressions grow complex.
+Using parentheses our example would be equivalent to
+
+#+begin_src java
+boolean isGoingOut = (!isRaining) || (isWithUmbrella && (!isCold));
+#+end_src
+
+** Short-circuiting Evaluation
+
+Java’s =&&= and =||= operators use *short-circuit evaluation*:
+
+- =A && B=: If =A= is false, =B= is /not/ evaluated —
+  Java interpreter already knows the entire
+  expression is false and does not need to evaluate B
+  so it does not do that.
+- =A || B=: If =A= is true, =B= is /not/ evaluated —
+  Java already knows the expression is true.
+
+Short-circuiting is important for several reasons:
+- **Error Prevention:** It helps avoid errors by
+  skipping evaluations that might be invalid.
+- **Preventing Side Effects:** It can prevent undesired side effects
+   from occurring if the second operand's evaluation is not necessary.
+- **Performance:** It can improve performance
+  by skipping potentially time-consuming or redundant computations.
+
+*** Example:
+
+#+begin_src java
+  int x = 10;
+  int y = 0;
+
+  // Short-circuit preventing division by zero 
+  boolean isDivisionAboveOne = y != 0 && (x / y) > 1;
+  System.out.println("Division is greater than 1 " + isDivisionAboveOne);
+
+  // Assume below methods to be defined
+  // Only writes to file if writing to database returns false
+  boolean isSaved = writeToDatabase("Data") || writeToFile("Data");
+  System.out.println("Data was saved " + isSaved);
+
+#+end_src
+
+If short-circuiting didn’t happen in the first example, =(x / y)=
+would always be evaluated, possibly causing an error if =y= was zero.
+If short-circuiting didn't happen in the second example data would
+be saved both to database and to file which could be undesired and
+take a long time unnecessarily. 
+
+** Evaluation order
+
+An easy mistake to make is to confuse precedence with
+order of evaluation.
+Precedence defines how operands are combined
+on an expression with multiple operations,
+but the evaluation order is still left to right.
+
+This is essential for short-circuiting to be effective, if
+the right operand could be evaluated first in some situations
+and later in others it would not be possible
+to use short-circuiting to prevent undesired evaluations.
+
+Let's get back to our example on precedence
+
+#+begin_src java
+boolean isRaining = true;
+boolean isWithUmbrella = false;
+boolean isCold = false;
+
+boolean isGoingOut = !isRaining || isWithUmbrella && !isCold;
+System.out.println("Are we going out? " + isGoingOut); // false
+#+end_src
+
+Due to operator precedence, this expression is equivalent to:
+=(!isRaining) || (isWithUmbrella && (!isCold))=
+
+Here is the actual evaluation sequence:
+1. First, Java evaluates =!isRaining=, which is =false=
+2. Since the left operand of =||= is =false=,
+   Java must evaluate the right operand
+3. For =isWithUmbrella && (!isCold)=,
+   Java first evaluates =isWithUmbrella=, which is =false=
+4. Because of short-circuiting,
+   Java doesn't need to evaluate =!isCold=
+   - the entire right side is already =false=
+5. The final result is =false || false=, which equals =false=
+
+Operator precedence is important to define that =isWithUmbrella=
+is grouped with =&& !isCold= 
+instead of being grouped with =!isRaining ||=,
+but the evaluation order is left to right
+preserving short-circuiting evaluation.
+
+If =!isRaining= had been =true=,
+Java would have stopped evaluation after step 1,
+since the left side of =||= would already be =true=.
