@@ -80,35 +80,37 @@ characters from languages around the world.
 
 ** Numeric Integers
 
-The numeric integer primitives include `byte`, `short`, `int`, and `long`
+The numeric integer primitives include
+=byte=, =short=, =int=, and =long=
 for storing whole numbers of different sizes.
-A `byte` is an 8-bit signed integer and it can store numbers in the range [-128, 127].
-A `short`is a 16-bit signed integer with range [-32,768, 32,767].
-An `int`, the most commonly used integer type, is a 32-bit signed integer
-with range [-2,147,483,648, 2,147,483,647]
-A `long` is a 64-bit signed integer and
-is the largest primitive integer type with range
+A =byte= is an 8-bit signed integer
+and it can store numbers in the range [-128, 127].
+A =short= is a 16-bit signed integer with range [-32,768, 32,767].
+An =int=, the most commonly used integer type,
+is a 32-bit signed integer with range [-2,147,483,648, 2,147,483,647]
+A =long= is a 64-bit signed integer and is
+the largest primitive integer type with range
 [-9,223,372,036,854,775,808, 9,223,372,036,854,775,807].
-A `long` literal has to be postfixed with either `L` or `l` for java
-compiler to consider that literal number a `long`. Using `L` is prefered
-so it is not confused with the literal one `1`.
+A =long= literal has to be postfixed with either =L= or =l= for java
+compiler to consider that literal number a =long=.
+Using =L= is prefered so it is not confused with the literal one =1=.
 
 #+begin_src java
-  // For the moment you don't need to worry about understanding every detail
-  // on this example
-  public class IntegerTypes {
-	  public static void main(String[] args) {
-		  byte smallNumber = 127;         // Maximum value for byte
-		  short mediumNumber = 32767;     // Maximum value for short
-		  int regularNumber = 2000000000; // Commonly used for most integers
-		  long largeNumber = 9000000000L; // Note the 'L' suffix for long values
+	// For the moment you don't need to worry
+    // about understanding every detail on this example
+	public class IntegerTypes {
+		public static void main(String[] args) {
+			byte smallNumber = 127;         // Maximum value for byte
+			short mediumNumber = 32767;     // Maximum value for short
+			int regularNumber = 2000000000; // Type commonly used for most integers
+			long largeNumber = 9000000000L; // Note the 'L' suffix for long values
 
-		  System.out.println("byte value: " + smallNumber);
-		  System.out.println("short value: " + mediumNumber);
-		  System.out.println("int value: " + regularNumber);
-		  System.out.println("long value: " + largeNumber);
-	  }
-  }
+			System.out.println("byte value: " + smallNumber);
+			System.out.println("short value: " + mediumNumber);
+			System.out.println("int value: " + regularNumber);
+			System.out.println("long value: " + largeNumber);
+		}
+	}
 #+end_src
 
 Choosing the appropriate type for your integer
@@ -120,7 +122,8 @@ unusual memory constraints nor need to support very large numbers.
 ** Numeric Decimals (Floating-Point Numbers)
 
 For decimal numbers, Java provides =float= and =double= primitive types.
-The =double= type is more precise and is the default for decimal values in Java.
+The =double= type is more precise and is
+the default for decimal values in Java.
 If you write =1.5= in your code, Java treats it as a =double=.
 When working with calculations that require precision,
 especially financial calculations,
@@ -130,33 +133,40 @@ The =float= data type is a 32-bit floating-point number,
 while =double= is a 64-bit floating-point number.
 A =float= can store decimal numbers with 6-7 significant digits of precision,
 while a =double= provides about 15-16 digits of precision.
-When using =float= literals, you must add the suffix 'f' or 'F',ex: =3.14f=,
+When using =float= literals,
+you must add the suffix 'f' or 'F',ex: =3.14f=,
 otherwise, Java will treat the number as a =double= by default.
 =Double= is generally preferred for most calculations
 because it provides greater precision without much
 performance impact on modern computers.
 
 #+begin_src java
+  // For the moment you don't need to worry about
+  // understanding every detail on this example
+
   // Floating-Point primitive types
   public class FloatingTypes {
 	  public static void main(String[] args) {
-		  float smallPrecisionNumber = 127.7F;    // Note the 'F' suffix for float values
-		  double highPrecisionNumber = 32767.02; //  Prefered type to use when requiring decimal values     
+		  // Note the 'F' suffix for float values
+		  float smallPrecisionNumber = 127.7F;
+
+		  // Prefered type to use when requiring decimal values 
+		  double highPrecisionNumber = 32767.02;     
 
 		  System.out.println("float value: " + smallPrecisionNumber);
 		  System.out.println("double value: " + highPrecisionNumber);
 	  }
   }
-  // For the moment you don't need to worry about understanding every detail
-  // on this example
+
 #+end_src
 
 ** Other Numeric types
 
 What if you need larger integers or more precise floating-point number?
 There are other non-primitive types that can handle those, but they are
-not subject of this lesson. If you are curious you can search for
-BigInteger and BigDecimal, but these should be a theme for another lesson.
+not subject of this lesson.
+If you are curious you can search for BigInteger and BigDecimal,
+but these should be a theme for another lesson.
 
 ** Custom Types
 

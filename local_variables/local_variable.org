@@ -19,8 +19,8 @@ block within methods or constructors
 like inside loops or if statements.
 Their scope is limited to the block where they are declared.
 For the moment we will limit ourselves to using them only on
-static methods as it does not require
-further understanding of the basics of Object Orientation nor of Scopes.
+static methods as it does not require further
+understanding of the basics of Object Orientation nor of Scopes.
 
 #+begin_src java
   public class LocalVariablesDemo {
@@ -42,7 +42,8 @@ In the above example, we actually performed
 2 different steps on the same line when
 creating the local variable =age=.
 One step was declaring a variable with type =int= named =age=.
-Another step was initializing the local variable =age= with the value =25=.
+Another step was initializing
+the local variable =age= with the value =25=.
 
 It's important to understand the difference between
 declaring a variable and initializing it:
@@ -51,7 +52,6 @@ declaring a variable and initializing it:
 
 Declaration is when you specify the variable's type and name.
 You can declare a variable without initializing it.
-
 
 #+begin_src java
   public class LocalVariablesDemo {
@@ -64,7 +64,8 @@ You can declare a variable without initializing it.
 
 *** Variable Initialization
 
-Initialization is when you assign a value to a variable for the first time.
+Initialization is when you assign a value
+to a variable for the first time.
 
 #+begin_src java
   public class LocalVariablesDemo {
@@ -78,7 +79,8 @@ Initialization is when you assign a value to a variable for the first time.
   }
 #+end_src
 
-You can also combine declaration and initialization in a single statement:
+You can also combine declaration and initialization
+in a single statement:
 
 #+begin_src java
   public class LocalVariablesDemo {
@@ -176,10 +178,11 @@ Keep your code well-written for your future self and
 for others. 
 
 ** The assignment operator ===
-In the previous examples we have already used the assignment operator to
-initialize a variable's value. For mutable local variables, you can
-use the assignment operator to change its value as many times as
-you want. Only the first assignment is considered an initialization.
+In the previous examples we have already used
+the assignment operator to initialize a variable's value.
+For mutable local variables, you can use
+the assignment operator to change its value as many times as you want.
+Only the first assignment is considered an initialization.
 
 #+begin_src java
   public static void main(String[] args) {
