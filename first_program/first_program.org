@@ -116,9 +116,11 @@ to be covered by other future lessons.
   is no interesting value produced by this method to be returned.
 - =main=
   This is a special function name.
-  All java executables need to have one and only one
-  public static main method defined
-  on one of the classes of the program.
+  All java programs need to have a public static main method defined
+  on the class that is going to act as Main class,
+  that on our example is =class HelloWord=.
+  Which class is going to act as Main class is defined on the
+  command we used to run the program, =java HelloWorld=
 - =(String[] args)=
   The =()= in this context defines parameters of a function definition.
   In this case the function has one parameter that has type =String[]=
