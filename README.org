@@ -1,0 +1,9 @@
+A set of introdutory texts on java language
+
+- [[file:./introduction_to_java/introduction_to_java.org][Introduction to java]]
+- [[file:./first_program/first_program.org][First Program]]
+- [[file:./types/types_primitives/primitive_data_types.org][Primitive Data Types]]
+- [[file:./local_variables/local_variable.org][Local Variables]]
+- [[file:./types/type_boolean/boolean_type_and_operations.org][Boolean Type and Operations]]
+- [[file:./types/type_char/char_type.org][Char Type]]
+
