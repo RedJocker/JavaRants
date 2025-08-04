@@ -1,16 +1,21 @@
+* depends on
+
+- [[file:../primitive_data_types/primitive_data_types.org][Java Primitive Data Types]]
+- [[file:../local_variable/local_variable.org][Local Variables]]
+
 * The `char` Type in Java
 
 ** Introduction
 
 Before we dive into working with text and larger systems
-of data in Java, it's essential to understand the `char` type,
-which represents individual characters.
-While you may already be familiar with primitive types such as
-`boolean`, the `char` type may seem simple at first but actually
-bridges both the numeric and textual worlds in Java programming.
-Mastering `char` gives you a foundation for working with Strings
-and manipulating text data before we move on to more
-complex types and data structures.
+of data in Java, it is foundational to understand the `char` type.
+The char type is an interesting type with a dual nature.
+On one hand it is the elementary unit of text representation,
+the individual character,
+while at the same time their underlying memory representation
+is numeric following the unicode standard.
+Mastering `char` will give you the base knowledge to work with Strings
+and manipulating text data.
 
 ** The Numeric Nature of `char`
 
@@ -76,15 +81,6 @@ While this appears to be a math operation,
 it has a natural connection to text processing
 —a theme you'll see often when working with characters.
 
-It's important to note: most math operations
-between chars actually result in an
-`int` value.
-That allows you to use arithmetic to,
-for example, calculate a character's difference
-from 'A', and use that as an index or key.
-We'll revisit these ideas as we study more
-complex numeric types like integers and longs.
-
 ** Characters and Text: From ASCII to Unicode
 
 While the numeric features of `char`
@@ -93,18 +89,18 @@ The `char` type was originally designed around the
 ASCII table—which maps codes 0–127
 to common characters like letters,
 digits, punctuation, and control codes.
-For example, 'a' is 97, 'A' is 65, and '0' (zero) is 48.
+For example, 'a' is 97, 'A' is 65, and '0' (character zero) is 48.
 
 But Java goes way beyond ASCII.
 Unicode includes symbols from scripts all over the world,
 mathematical and technical symbols, and emojis.
 All of these can fit in `char` variables
 (though some rare characters like certain
-emojis require special handling—this will
-become important when we talk about
-text processing and strings).
+emojis require special handling).
 
-Comparisons between chars become especially interesting on the textual side. For example:
+Comparisons between chars become especially interesting
+on the textual side.
+For example:
 #+begin_src java
   System.out.println('a' > 'A'); // true, because 97 > 65
 #+end_src
@@ -132,25 +128,13 @@ invisible characters in your data.
 
 Some other languages, like C have chars with size of one byte.
 This makes char arrays =char[]= to be a good type to use
-for raw processing of data.  
+for raw processing of data.
 In java the type that has only one byte is
 named byte, so byte arrays =byte[]= are prefered types for
 raw processing.
 If you don't know what are arrays yet don't worry, they are
 just a fixed collection of a certain type and we will spend more
-type with them and other data stuctures later.
-
-** How `char` Fits into Java’s Type System
-
-`char` is a primitive type—meaning it isn't
-a class like String or ArrayList.
-It holds a value directly, and it doesn’t have methods.
-When you mix `char` with other types,
-Java will often automatically promote it to an `int`
-in expressions.
-This can be useful, but it also means you have
-to be aware of when your chars stop behaving
-like text and start acting as numbers.
+time with them and other data stuctures later.
 
 ** The Gateway to Strings and Beyond
 
@@ -160,11 +144,6 @@ immutable sequences of `char` values.
 This means a full understanding of `char`
 is foundational for text processing,
 parsing, formatting, and much more.
-Conversely, true “raw data” is not handled as `char`,
-but as `byte`.
-This distinction is especially important in applications
-dealing with binary files, network streams,
-or anything else that’s not strictly human-readable text.
 
 As we move forward,
 we’ll build on this understanding,
@@ -184,6 +163,3 @@ as a value while also representing human-readable symbols
 from Unicode.
 Its flexibility allows both efficient
 processing and expressive coding.
-As you continue through this course,
-you’ll see how these concepts prepare you for both
-string manipulation and numerical computation.
