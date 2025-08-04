@@ -1,6 +1,6 @@
 * depends on
 
-- [[file:../primitive_data_types/primitive_data_types.org][Java Primitive Data Types]]
+- [[file:../types/types_primitives/primitive_data_types.org][Java Primitive Data Types]]
 
 * Java Lesson: Local Variables
 
